@@ -1,0 +1,129 @@
+/* ============================================
+   DASHBOARD STYLES
+   ============================================ */
+.kpis-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+.kpi-card {
+  background: linear-gradient(135deg, var(--color-white) 0%, var(--color-light-gray) 100%);
+  border: 1px solid var(--color-neutral-gray);
+  border-radius: 8px;
+  padding: var(--spacing-lg);
+  display: flex;
+  gap: var(--spacing-lg);
+  align-items: center;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-default);
+}
+
+.kpi-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-gold);
+}
+
+.kpi-icon {
+  font-size: 32px;
+  min-width: 60px;
+  text-align: center;
+}
+
+.kpi-content {
+  flex: 1;
+}
+
+.kpi-value {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: var(--color-gold);
+  line-height: 1;
+  margin-bottom: var(--spacing-xs);
+}
+
+.kpi-label {
+  color: var(--color-dark-gray);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+}
+
+.dashboard-section {
+  background-color: var(--color-white);
+  border-radius: 8px;
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--spacing-lg);
+}
+
+.dashboard-section h2 {
+  margin-top: 0;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-text);
+}
+
+/* ============================================
+   STATUS BADGES
+   ============================================ */
+.status-badge {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: 20px;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.status-badge.agendado {
+  background-color: #E3F2FD;
+  color: #1976D2;
+  border: 1px solid #1976D2;
+}
+
+.status-badge.confirmado {
+  background-color: #F3E5F5;
+  color: #7B1FA2;
+  border: 1px solid #7B1FA2;
+}
+
+.status-badge.concluido {
+  background-color: #E8F5E9;
+  color: #388E3C;
+  border: 1px solid #388E3C;
+}
+
+.status-badge.cancelado {
+  background-color: #FFEBEE;
+  color: #D32F2F;
+  border: 1px solid #D32F2F;
+}
+
+/* ============================================
+   RESPONSIVO
+   ============================================ */
+@media (max-width: 768px) {
+  .kpis-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .kpi-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .kpi-icon {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .kpis-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .kpi-value {
+    font-size: var(--font-size-xl);
+  }
+}

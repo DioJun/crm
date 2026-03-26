@@ -1,0 +1,131 @@
+/* ============================================
+   LAYOUT PRINCIPAL
+   ============================================ */
+#app {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: var(--color-white);
+  border-right: 1px solid var(--color-neutral-gray);
+  overflow-y: auto;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  background-color: var(--color-light-gray);
+}
+
+.page-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-gray);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.page-body {
+  flex: 1;
+  padding: var(--spacing-lg);
+  overflow-y: auto;
+}
+
+.page-footer {
+  background-color: var(--color-white);
+  border-top: 1px solid var(--color-neutral-gray);
+  padding: var(--spacing-md);
+  text-align: center;
+  color: var(--color-dark-gray);
+  font-size: var(--font-size-sm);
+}
+
+/* ============================================
+   MENU HAMBURGER (Mobile)
+   ============================================ */
+.hamburger-btn {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-sm);
+  gap: 6px;
+}
+
+.hamburger-btn span {
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-text);
+  transition: all var(--transition-default);
+  display: block;
+}
+
+.hamburger-btn.active span:nth-child(1) {
+  transform: rotate(45deg) translate(10px, 10px);
+}
+
+.hamburger-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-btn.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* ============================================
+   RESPONSIVO - TABLET
+   ============================================ */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 70px;
+  }
+  
+  .sidebar.expanded {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 250px;
+    height: 100vh;
+    z-index: 1000;
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .sidebar.expanded::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+  }
+}
+
+/* ============================================
+   RESPONSIVO - MOBILE
+   ============================================ */
+@media (max-width: 480px) {
+  .sidebar {
+    display: none;
+  }
+  
+  .sidebar.expanded {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .page-body {
+    padding: var(--spacing-md);
+  }
+}
